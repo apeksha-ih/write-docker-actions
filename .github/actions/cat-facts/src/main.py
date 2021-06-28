@@ -12,7 +12,7 @@ r_obj_list = r.json()
 fact_list = []
 
 # Add the "text" of every object into the fact_list list
-for fact in len((fact_list)+1):
+for fact in len((r_obj_list)+1):
     fact_list.append(fact["text"])
 
 # Select a random fact from the fact_list and return it
