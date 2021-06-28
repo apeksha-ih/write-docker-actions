@@ -2,14 +2,14 @@ const core = require("@actions/core");
 const github = require("@actions/github");
 
 async function run() {
+ try {
   const issueTitle = core.getInput("issueTitle");
   const catFact = core.getInput("catFact");
-
   const token = core.getInput("repoToken");
-  try {
-    const octokit = new github.getOctokit(token);
+   
+  const octokit = new github.getOctokit(token);
 
-    const newIssue = await octokit.rest.issues.create({
+  const newIssue = await octokit.rest.issues.create({
       repo: github.context.repo.repo,
       owner: github.context.repo.owner,
       title: issueTitle,
